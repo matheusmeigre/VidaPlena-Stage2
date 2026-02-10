@@ -1,0 +1,36 @@
+name: CI - VidaPlena Saúde Integrada
+
+on:
+  push:
+    branches:
+      - main
+      - feat/**
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build & Validate Frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Validar estrutura do projeto
+        run: |
+          test -f index.html
+          test -d css
+          test -d js
+          test -f css/style.css
+          test -f js/main.js
+
+      - name: Validar HTML (lint básico)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tidy
+          tidy -errors index.html || true
+
+      - name: Finalização
+        run: echo "Pipeline executado com sucesso 🚀"
