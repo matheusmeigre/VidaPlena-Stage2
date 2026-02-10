@@ -1,0 +1,51 @@
+:root {
+  --bg: #f4fefe;
+  --text: #333;
+  --primary: #2ca58d;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #f1f1f1;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.hero {
+  padding: 40px;
+  text-align: center;
+}
+
+.cta {
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 15px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.faq-answer {
+  display: none;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
+}
